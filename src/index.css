@@ -1,0 +1,16 @@
+body {
+  margin: 0; /* Elimina márgenes predeterminados */
+  height: 100vh; /* Hace que el body ocupe toda la altura de la ventana */
+  display: flex;
+  justify-content: center; /* Centra el contenido horizontalmente */
+  align-items: center; /* Centra el contenido verticalmente */
+  background-color: var(--main-background); /* Fondo del body */
+  padding: 50px;
+}
+
+:root {
+  --main-background: #294b29;
+  --game-background: #50623a;
+  --card-background: #789461;
+  --text-color: #dbe7c9;
+}

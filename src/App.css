@@ -1,0 +1,108 @@
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--game-background);
+  width: 800px;
+  max-width: 1000px;
+  height: auto;
+  min-height: 500px;
+  border-radius: 16px;
+  align-items: center;
+}
+
+.headerContainer {
+  display: flex;
+  flex-direction: row;
+  height: 10vh;
+  width: 100%;
+  max-width: 600px;
+  justify-content: center; /* Centra los elementos */
+  align-items: center;
+  margin-top: 20px;
+  gap: 100px;
+}
+
+.mainTitle {
+  font-size: 2rem;
+  color: var(--text-color);
+  text-align: center;
+  font-weight: bold;
+  align-self: center;
+}
+
+.buttonContainer {
+  display: flex;
+  gap: 20px;
+}
+
+.cardNumberButton {
+  background-color: transparent;
+  color: var(--text-color);
+  border: 2px solid var(--text-color);
+  border-radius: 12px;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.cardNumberButton.selected {
+  background-color: #8b9f57;
+  color: white;
+}
+
+.gameContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gameBoard {
+  display: grid;
+  grid-gap: 10px; /* Espacio entre las cartas */
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  transition: grid-template-columns 0.3s ease; /* Transición suave cuando cambian las cartas */
+  width: auto;
+  margin-bottom: 40px;
+  margin-top: 20px;
+}
+
+.gameCard {
+  aspect-ratio: 1; /* Asegura que las cartas sean cuadradas */
+  background-color: var(--card-background);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--text-color);
+  font-size: 50px; /* Tamaño del texto */
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  padding: 10px; /* Reducción de padding */
+}
+
+.gameBoard[data-cards="16"] {
+  grid-template-columns: repeat(4, 1fr); /* 4 columnas para 16 cartas (4x4) */
+  grid-template-rows: repeat(4, 1fr); /* 4 filas */
+}
+
+.gameBoard[data-cards="32"] {
+  grid-template-columns: repeat(8, 1fr); /* 8 columnas para 32 cartas (8x4) */
+  grid-template-rows: repeat(4, 1fr); /* 4 filas */
+}
+
+.gameBoard[data-cards="64"] {
+  grid-template-columns: repeat(8, 1fr); /* 8 columnas para 64 cartas (8x8) */
+  grid-template-rows: repeat(8, 1fr); /* 8 filas */
+}
+
+.gameBoard[data-cards="32"] .gameCard {
+  font-size: 50px; /* Reduce el tamaño del texto para 32 cartas */
+  padding: 5px; /* Reduce padding */
+}
+
+.gameBoard[data-cards="64"] .gameCard {
+  font-size: 50px; /* Reduce aún más el tamaño del texto para 64 cartas */
+  padding: 2px; /* Reduce padding */
+}
