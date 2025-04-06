@@ -104,5 +104,5 @@
 
 .gameBoard[data-cards="64"] .gameCard {
   font-size: 50px; /* Reduce aún más el tamaño del texto para 64 cartas */
-  padding: 2px; /* Reduce padding */
+  padding: 5px; /* Reduce padding */
 }

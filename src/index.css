@@ -1,6 +1,6 @@
 body {
   margin: 0; /* Elimina márgenes predeterminados */
-  height: 100vh; /* Hace que el body ocupe toda la altura de la ventana */
+  height: auto; /* Hace que el body ocupe toda la altura de la ventana */
   display: flex;
   justify-content: center; /* Centra el contenido horizontalmente */
   align-items: center; /* Centra el contenido verticalmente */
