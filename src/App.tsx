@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { Fireworks } from "@fireworks-js/react";
 import "./App.css";
 import HeaderButtons from "./components/HeaderButtons";
@@ -15,8 +15,6 @@ function App() {
   const [flipped, setFlipped] = useState<number[]>([]);
   const [matched, setMatched] = useState<Set<number>>(new Set());
   const [showFireworks, setShowFireworks] = useState<boolean>(false); // Nuevo estado para controlar los fuegos artificiales
-
-  const fireworksRef = useRef<Fireworks | null>(null);
 
   const getCards = (cardNumber: number) => {
     let selectedEmojis;
@@ -46,9 +44,6 @@ function App() {
   useEffect(() => {
     if (matched.size === cardNumber) {
       setShowFireworks(true); // Activar los fuegos artificiales cuando todas las cartas coincidan
-      if (fireworksRef.current) {
-        fireworksRef.current.start(); // Iniciar los fuegos artificiales
-      }
     }
   }, [matched, cardNumber]);
 
@@ -57,9 +52,6 @@ function App() {
     setMatched(new Set());
     getCards(cardNumber);
     setShowFireworks(false);
-    if (fireworksRef.current) {
-      fireworksRef.current.stop();
-    }
   };
 
   const handleCardClick = (index: number) => {
@@ -127,7 +119,6 @@ function App() {
           }}
         >
           <Fireworks
-            ref={fireworksRef}
             options={{
               opacity: 0.5,
             }}
