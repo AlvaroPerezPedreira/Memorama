@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 type HeaderButtonsProps = {
   setCardNumber: (num: number) => void;
