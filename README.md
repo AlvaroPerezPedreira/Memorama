@@ -1,54 +1,22 @@
-# React + TypeScript + Vite
+# Memorama
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Memorama is an interactive memory game developed using **TypeScript**, **React**, and **Vite**, with the visual styling provided by **CSS**. The game consists of a set of cards placed face down, where the user must strategically and quickly match identical cards.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React** for a dynamic user interface.
+- **TypeScript** for type safety and robust development.
+- **Vite** for fast development and optimized build times.
+- Responsive and interactive design with **CSS**.
 
-## Expanding the ESLint configuration
+## How to Play
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1. The game displays a grid of cards placed face down.
+2. The player needs to flip two cards at a time to try and match pairs of identical cards.
+3. The goal is to match all pairs within the shortest time possible.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Deployed Application
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+You can play the game live by visiting the following URL:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+[View deployed application on Vercel](https://memorama-tau.vercel.app/)
