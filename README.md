@@ -7,7 +7,7 @@ Memorama is an interactive memory game developed using **TypeScript**, **React**
 - **React** for a dynamic user interface.
 - **TypeScript** for type safety and robust development.
 - **Vite** for fast development and optimized build times.
-- Responsive and interactive design with **CSS**.
+- Interactive design with **CSS**.
 
 ## How to Play
 
