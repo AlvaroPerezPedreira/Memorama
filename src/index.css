@@ -1,16 +1,21 @@
 body {
-  margin: 0; /* Elimina márgenes predeterminados */
-  height: auto; /* Hace que el body ocupe toda la altura de la ventana */
+  margin: 0;
+  height: auto;
   display: flex;
-  justify-content: center; /* Centra el contenido horizontalmente */
-  align-items: center; /* Centra el contenido verticalmente */
-  background-color: var(--main-background); /* Fondo del body */
+  justify-content: center;
+  align-items: center;
+  background-color: var(--main-background);
   padding: 50px;
 }
 
 :root {
-  --main-background: #294b29;
-  --game-background: #50623a;
-  --card-background: #789461;
-  --text-color: #dbe7c9;
+  --main-background: #020202;
+  --game-background: #0d2818;
+  --card-background: #04471c;
+  --card-success: #16db65;
+  --button-selected: #058c42;
+  --text-color: #ffffff;
+  --reset-button: #ff4d4d;
+  --reset-button-hover: #ff3333;
+  --white-full: #ffffff;
 }

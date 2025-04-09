@@ -14,7 +14,7 @@ function App() {
   const [shuffledCards, setShuffledCards] = useState<string[]>([]);
   const [flipped, setFlipped] = useState<number[]>([]);
   const [matched, setMatched] = useState<Set<number>>(new Set());
-  const [showFireworks, setShowFireworks] = useState<boolean>(false); // Nuevo estado para controlar los fuegos artificiales
+  const [showFireworks, setShowFireworks] = useState<boolean>(false);
 
   const getCards = (cardNumber: number) => {
     let selectedEmojis;
@@ -29,12 +29,9 @@ function App() {
 
     const shuffled: string[] = getShuffledPairs([...selectedEmojis]);
     setShuffledCards(shuffled);
-    console.log("Shuffled Cards:", shuffled);
   };
 
   useEffect(() => {
-    console.log("bucle2");
-
     getCards(cardNumber);
     setFlipped([]);
     setMatched(new Set());
@@ -43,7 +40,7 @@ function App() {
 
   useEffect(() => {
     if (matched.size === cardNumber) {
-      setShowFireworks(true); // Activar los fuegos artificiales cuando todas las cartas coincidan
+      setShowFireworks(true);
     }
   }, [matched, cardNumber]);
 
@@ -56,7 +53,7 @@ function App() {
 
   const handleCardClick = (index: number) => {
     if (flipped.includes(index) || flipped.length === 2 || matched.has(index))
-      return; // Evitar hacer clic en cartas ya volteadas o coincidentes
+      return;
 
     const newFlipped = [...flipped, index];
     setFlipped(newFlipped);
@@ -67,13 +64,12 @@ function App() {
       const secondEmoji = shuffledCards[secondIndex];
 
       if (firstEmoji === secondEmoji) {
-        // Si las cartas coinciden, agregar a matched
         setMatched((prevMatched) =>
           new Set(prevMatched).add(firstIndex).add(secondIndex)
         );
       }
 
-      setTimeout(() => setFlipped([]), 1000); // Oculta las cartas después de 1s
+      setTimeout(() => setFlipped([]), 1000);
     }
   };
 
@@ -115,7 +111,7 @@ function App() {
             left: 0,
             width: "100%",
             height: "100%",
-            pointerEvents: "none", // Esto permite interactuar con los botones debajo
+            pointerEvents: "none",
           }}
         >
           <Fireworks
