@@ -91,7 +91,10 @@ function App() {
               } ${matched.has(index) ? "success" : ""}`}
               onClick={() => handleCardClick(index)}
             >
-              <span>{emoji}</span>
+              <div className="gameCard-front" />
+              <div className="gameCard-back">
+                <span>{emoji}</span>
+              </div>
             </div>
           ))}
         </div>
