@@ -5,7 +5,9 @@
   border-radius: 16px;
   overflow: hidden;
   background-color: var(--game-background);
-  width: 800px;
+  width: fit-content;
+  padding-left: 100px;
+  padding-right: 100px;
   max-width: 1000px;
   height: auto;
   position: relative;
@@ -62,7 +64,7 @@
 
 .gameBoard {
   display: grid;
-  grid-gap: 10px;
+  grid-gap: 20px;
   justify-content: center;
   align-items: center;
   padding: 10px;
@@ -75,28 +77,24 @@
   grid-template-rows: repeat(4, 1fr);
 }
 
-.gameBoard[data-cards="32"] {
-  grid-template-columns: repeat(8, 1fr);
-  grid-template-rows: repeat(4, 1fr);
-}
-
+.gameBoard[data-cards="32"],
 .gameBoard[data-cards="64"] {
   grid-template-columns: repeat(8, 1fr);
-  grid-template-rows: repeat(8, 1fr);
 }
 
-.gameBoard[data-cards="32"] .gameCard {
-  font-size: 50px;
-  padding: 5px;
-  width: 90%;
-  height: 90%;
-}
-
+.gameBoard[data-cards="32"] .gameCard,
 .gameBoard[data-cards="64"] .gameCard {
-  font-size: 50px;
-  padding: 5px;
-  width: 90%;
-  height: 90%;
+  font-size: 40px;
+  width: 100px;
+  height: auto;
+  aspect-ratio: 1 / 1;
+}
+
+.gameBoard[data-cards="32"] .gameCard-front,
+.gameBoard[data-cards="32"] .gameCard-back,
+.gameBoard[data-cards="64"] .gameCard-front,
+.gameBoard[data-cards="64"] .gameCard-back {
+  font-size: 40px;
 }
 
 /* .gameCard {
@@ -217,66 +215,88 @@
   transform: scale(1.1);
 }
 
-@media (max-width: 850px) {
+@media (max-width: 950px) {
   .mainContainer {
-    width: 100%;
-    height: auto;
+    width: fit-content;
+    padding-left: 50px;
+    padding-right: 50px;
     border-radius: 12px;
-    width: 400px;
+    top: 10px;
   }
 
   .headerContainer {
     flex-direction: column;
     height: auto;
-    gap: 20px;
+    max-width: 100%;
+    gap: 16px;
     margin-top: 10px;
+    text-align: center;
+  }
+
+  .mainTitle {
+    font-size: 1.5rem;
   }
 
   .buttonContainer {
     flex-wrap: wrap;
     justify-content: center;
+    gap: 12px;
+  }
+
+  .cardNumberButton {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+
+  .gameContainer {
+    margin: 10px 0;
+    width: 100%;
   }
 
   .gameBoard {
     grid-gap: 10px;
     padding: 5px;
-    height: auto;
-    width: 300px;
-  }
-
-  .gameBoard[data-cards="16"] {
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(4, 1fr);
+    width: 100%;
   }
 
   .gameBoard[data-cards="32"],
   .gameBoard[data-cards="64"] {
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: auto;
   }
 
   .gameCard {
-    width: 70px;
-    height: 70px;
-    font-size: 30px;
+    width: 80px;
+    height: 80px;
   }
 
   .gameBoard[data-cards="32"] .gameCard,
   .gameBoard[data-cards="64"] .gameCard {
-    font-size: 25px;
-    width: 85%;
-    height: 85%;
+    width: 60px;
+    height: 60px;
+    aspect-ratio: 1 / 1;
+  }
+
+  .gameCard-front,
+  .gameCard-back {
+    font-size: 40px;
+  }
+
+  .gameBoard[data-cards="32"] .gameCard-front,
+  .gameBoard[data-cards="32"] .gameCard-back,
+  .gameBoard[data-cards="64"] .gameCard-front,
+  .gameBoard[data-cards="64"] .gameCard-back {
+    font-size: 30px;
   }
 
   .footerContainer {
     flex-direction: column;
     height: auto;
     padding: 10px;
-    position: relative;
+    margin-bottom: 10px;
   }
 
   .resetButton {
-    padding: 10px 20px;
+    padding: 10px 16px;
     font-size: 14px;
   }
 }
