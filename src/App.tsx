@@ -15,6 +15,8 @@ function App() {
   const [flipped, setFlipped] = useState<number[]>([]);
   const [matched, setMatched] = useState<Set<number>>(new Set());
   const [showFireworks, setShowFireworks] = useState<boolean>(false);
+  const [startTime, setStartTime] = useState<number | null>(null); // Tiempo de inicio del contador
+  const [elapsedTime, setElapsedTime] = useState<number>(0); // Tiempo transcurrido
 
   const getCards = (cardNumber: number) => {
     let selectedEmojis;
@@ -36,6 +38,8 @@ function App() {
     setFlipped([]);
     setMatched(new Set());
     setShowFireworks(false);
+    setStartTime(null); // Reiniciar el tiempo al cambiar el número de cartas
+    setElapsedTime(0); // Reiniciar el tiempo al cambiar el número de cartas
   }, [cardNumber]);
 
   useEffect(() => {
@@ -44,11 +48,23 @@ function App() {
     }
   }, [matched, cardNumber]);
 
+  useEffect(() => {
+    if (startTime !== null && !showFireworks) {
+      const interval = setInterval(() => {
+        setElapsedTime(Math.floor((Date.now() - startTime) / 1000));
+      }, 1000);
+
+      return () => clearInterval(interval);
+    }
+  }, [startTime, showFireworks]);
+
   const resetGame = () => {
     setFlipped([]);
     setMatched(new Set());
     getCards(cardNumber);
     setShowFireworks(false);
+    setStartTime(null); // Reiniciar el tiempo al reiniciar el juego
+    setElapsedTime(0); // Reiniciar el tiempo al reiniciar el juego
   };
 
   const handleCardClick = (index: number) => {
@@ -57,6 +73,11 @@ function App() {
 
     const newFlipped = [...flipped, index];
     setFlipped(newFlipped);
+
+    // Iniciar el contador con el primer clic en una carta
+    if (startTime === null) {
+      setStartTime(Date.now());
+    }
 
     if (newFlipped.length === 2) {
       const [firstIndex, secondIndex] = newFlipped;
@@ -77,6 +98,13 @@ function App() {
     <div className="mainContainer">
       <div className="headerContainer">
         <span className="mainTitle">Memorama</span>
+        <div className="timeContainer">
+          {startTime !== null && !showFireworks ? (
+            <span className="timeSpan">Time: {elapsedTime}</span>
+          ) : (
+            <span className="timeSpan">Time: {elapsedTime}</span>
+          )}
+        </div>
         <div className="buttonContainer">
           <HeaderButtons setCardNumber={setCardNumber} />
         </div>
